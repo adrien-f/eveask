@@ -1,0 +1,10 @@
+html{overflow-y:scroll;}
+body{font-family:'Open Sans',sans-serif;}
+section{overflow:auto;}
+textarea{resize:vertical;}
+h1,h2,h3,h4,h5,h6{font-family:'Open Sans',sans-serif;}
+.page-header{margin-top:0;}
+.navbar-inverse{background-color:#2c3e50;border-radius:0;border-color:#1a242f;}
+.navbar-brand{color:white !important;}
+.navbar-nav>.active>a{background-color:#1a242f !important;}
+.navbar-nav li>a:hover{background-color:#1a242f !important;}

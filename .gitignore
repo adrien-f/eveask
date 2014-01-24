@@ -58,4 +58,4 @@ settings.py
 
 eveask/bower_components/*
 !eveask/bower_components/.gitkeep
-
+eveask/static/public/css/common.css

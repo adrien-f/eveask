@@ -28,7 +28,7 @@
     {% include "_layouts/nav.html" %}
 
     <header>{% block header %}{% endblock %}</header>
-    <div class="{% block content_class %}{% endblock content_class %}">
+        <div class="{% block content_class %}{% endblock content_class %} container">
         <div role="main">
             {% with messages = get_flashed_messages(with_categories=true) %}
             {% if messages %}

@@ -1,42 +1,139 @@
 html {
-    overflow-y: scroll;
+  overflow-y: scroll;
 }
 
 body {
-    font-family: 'Open Sans', sans-serif;
+  font-family: 'Open Sans', sans-serif;
 }
 
 section {
-    overflow: auto;
+  overflow: auto;
 }
 
 textarea {
-    resize: vertical;
+  resize: vertical;
 }
 
 h1, h2, h3, h4, h5, h6 {
-    font-family: 'Open Sans', sans-serif;
+  font-family: 'Open Sans', sans-serif;
+}
+
+@belize_hole: #2980b9;
+
+@media (min-width: 1200px) {
+  .container {
+    width: 970px;
+  }
 }
 
 .page-header {
-    margin-top: 0;
+  margin-top: 0;
 }
 
 .navbar-inverse {
-    background-color: #2c3e50;
-    border-radius: 0;
-    border-color: darken(#2c3e50, 10%)
+  background-color: @belize_hole;
+  border-radius: 0;
+  border-color: darken(@belize_hole, 1%)
 }
 
 .navbar-brand {
-    color: white !important;
+  color: white !important;
 }
 
 .navbar-nav {
-    > .active > a {
-        background-color: darken(#2c3e50, 10%) !important;
+  > .active > a {
+    background-color: darken(@belize_hole, 10%) !important;
+  }
+  li > a:hover {
+    background-color: darken(@belize_hole, 10%) !important;
+  }
+  li > a {
+    color: white !important;
+  }
+}
+
+.header {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  h1 {
+    font-weight: bold;
+    margin: 0;
+  }
+}
+
+.pills-header {
+  a {
+    color: #333;
+  }
+  > li > a {
+    text-decoration: none;
+    background-color: #eee;
+
+    &:hover {
+      background-color: lighten(@belize_hole, 40%);
     }
-    li > a:hover {
-        background-color: darken(#2c3e50, 10%) !important;
-    }
+  }
+}
+
+.counter {
+  text-align: center;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  .number {
+    display: block;
+    font-weight: bold;
+    font-size: 18px;
+  }
+  .legend {
+    display: block;
+    font-size: 11px;
+  }
+
+  &.answered {
+    background-color: #2ecc71;
+  }
+}
+
+.subline {
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid darken(#eee, 10%);
+}
+
+.question {
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #eee;
+  h4 {
+    margin: 0;
+  }
+  .meta {
+    padding-top: 10px;
+    display: block;
+  }
+  .tags-list {
+    display: inline;
+  }
+  .info {
+    float: right;
+    font-size: small;
+  }
+}
+
+.label-inverse {
+  background-color: #eee;
+  color: #333;
+  font-weight: normal;
+}
+
+.sidebar {
+  padding-top: 20px;
+}
+
+.sidebar-block {
+  .tags-list span {
+    margin-bottom: 5px;
+    padding: 5px 10px;
+    display: inline-block;
+  }
 }

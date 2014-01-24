@@ -1,0 +1,166 @@
+
+{% extends "_layouts/base.html" %}
+{% block content %}
+    <div class="row header">
+        <div class="col-md-3">
+            <h1>Eve{{ icon('question') }}Ask</h1>
+        </div>
+        <div class="col-md-4">
+            <ul class="nav nav-pills pills-header">
+                <li><a href="#">Questions</a></li>
+                <li><a href="#">Tags</a></li>
+                <li><a href="#">About</a></li>
+            </ul>
+        </div>
+        <div class="col-md-5">
+            <ul class="nav nav-pills pull-right pills-header">
+                <li><a href="#">{{ icon('plus') }} New Question</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-9">
+            <h3 class="subline">Trending Questions</h3>
+
+            <div class="questions">
+                <div class="clearfix question">
+                    <div class="col-md-4">
+                        <div class="col-md-4">
+                            <div class="counter">
+                                <span class="number">431</span>
+                                <span class="legend">votes</span>
+                            </div>
+                        </div>
+                        <div class="col-md-5">
+                            <div class="counter">
+                                <span class="number">431</span>
+                                <span class="legend">answers</span>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="counter">
+                                <span class="number">431</span>
+                                <span class="legend">views</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-8">
+                        <h4>How to win at Eve ?</h4>
+
+                        <div class="meta">
+                            <div class="tags-list">
+                                <span class="label label-inverse">Tag 1</span>
+                                <span class="label label-inverse">Tag 2</span>
+                                <span class="label label-inverse">Tag 3</span>
+                            </div>
+                            <div class="info">
+                                <span class="text-muted">22s ago</span>
+                                <a href="#">Vadrin Hegirin - J4LP (100)</a>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="clearfix question">
+                    <div class="col-md-4">
+                        <div class="col-md-4">
+                            <div class="counter">
+                                <span class="number">431</span>
+                                <span class="legend">votes</span>
+                            </div>
+                        </div>
+                        <div class="col-md-5">
+                            <div class="counter">
+                                <span class="number">431</span>
+                                <span class="legend">answers</span>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="counter">
+                                <span class="number">431</span>
+                                <span class="legend">views</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-8">
+                        <h4>How to win at Eve ?</h4>
+
+                        <div class="meta">
+                            <div class="tags-list">
+                                <span class="label label-inverse">Tag 1</span>
+                                <span class="label label-inverse">Tag 2</span>
+                                <span class="label label-inverse">Tag 3</span>
+                            </div>
+                            <div class="info">
+                                <span class="text-muted">22s ago</span>
+                                <a href="#">Vadrin Hegirin - J4LP (100)</a>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="clearfix question">
+                    <div class="col-md-4">
+                        <div class="col-md-4">
+                            <div class="counter">
+                                <span class="number">431</span>
+                                <span class="legend">votes</span>
+                            </div>
+                        </div>
+                        <div class="col-md-5">
+                            <div class="counter answered">
+                                <span class="number">431</span>
+                                <span class="legend">answers</span>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="counter">
+                                <span class="number">431</span>
+                                <span class="legend">views</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-8">
+                        <h4>How to win at Eve ?</h4>
+
+                        <div class="meta">
+                            <div class="tags-list">
+                                <span class="label label-inverse">Tag 1</span>
+                                <span class="label label-inverse">Tag 2</span>
+                                <span class="label label-inverse">Tag 3</span>
+                            </div>
+                            <div class="info">
+                                <span class="text-muted">22s ago</span>
+                                <a href="#">Vadrin Hegirin - J4LP (100)</a>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 sidebar">
+            <div class="well">
+                Your advert here.
+            </div>
+            <div class="sidebar-block">
+                <h4>Eve{{ icon('question') }}Ask is:</h4>
+                <ul>
+                    <li><span class="badge">54</span> questions</li>
+                    <li><span class="badge">41</span> answers</li>
+                    <li><span class="badge">414</span> users</li>
+                </ul>
+            </div>
+            <div class="sidebar-block">
+                <h4>Popular tags</h4>
+
+                <div class="tags-list">
+                    <span class="label label-inverse">foo</span> <span class="label label-inverse">foo</span> <span
+                        class="label label-inverse">foo</span> <span class="label label-inverse">foo</span> <span
+                        class="label label-inverse">foo</span> <span class="label label-inverse">foo</span> <span
+                        class="label label-inverse">foo</span> <span class="label label-inverse">foo</span>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

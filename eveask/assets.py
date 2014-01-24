@@ -16,3 +16,4 @@ common_js = Bundle(
     ),
     output="public/js/common.js"
 )
+

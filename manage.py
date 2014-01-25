@@ -4,8 +4,8 @@ import sys
 import os
 import subprocess
 from flask.ext.script import Manager, Shell, Server
-from flask.ext.assets import ManageAssets
 from webassets.script import CommandLineEnvironment
+from flask.ext.migrate import MigrateCommand
 from eveask.app import assets_env
 from eveask.main import app
 
@@ -52,6 +52,7 @@ def watch_assets():
 
 manager.add_command("runserver", Server(host='0.0.0.0', port=os.getenv('PORT', 5000), debug=True))
 manager.add_command("shell", Shell(make_context=_make_context))
+manager.add_command('db', MigrateCommand)
 
 if __name__ == '__main__':
     manager.run()

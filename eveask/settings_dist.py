@@ -2,10 +2,13 @@
 import os
 
 class Config(object):
-    SECRET_KEY = 'b33e65d91409ca5d8a47704efc6e4c5f'
+    SECRET_KEY = 'akV5JQZyKxcwdOTs2ZSK+PeM/r2fOzwguKKfadWJg/4='
     APP_DIR = os.path.abspath(os.path.dirname(__file__))
     PROJECT_ROOT = os.path.abspath(os.path.join(APP_DIR, os.pardir))
     LOG_FILE = 'eveask.log'
+    SECURITY_PASSWORD_HASH = 'bcrypt'
+    SECURITY_PASSWORD_SALT = 'GeHzBFbt3xps3zpCr33x5bKNiq+xGsL1FKdD1ZGJyI8='
+    SECURITY_TRACKABLE = True
 
 
 class ProdConfig(Config):

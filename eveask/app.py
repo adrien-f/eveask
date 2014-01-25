@@ -4,8 +4,10 @@ import logging
 from logging import Formatter
 from logging.handlers import RotatingFileHandler
 from flask import Flask
+from flask.ext.migrate import Migrate
 from flask.ext.sqlalchemy import SQLAlchemy
 from flask.ext.assets import Environment
+from flask.ext.security import Security
 from webassets.loaders import PythonLoader
 from eveask import assets
 
@@ -20,6 +22,11 @@ app.config.from_object('eveask.settings.{env}Config'.format(env=env.capitalize()
 app.config['ENV'] = env
 
 db = SQLAlchemy(app)
+
+migrate = Migrate(app, db)
+
+from eveask.models import user_datastore  #  Circular imports FTW
+security = Security(app, user_datastore)
 
 # Register asset bundles
 assets_env = Environment()

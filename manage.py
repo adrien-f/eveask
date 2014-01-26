@@ -6,7 +6,7 @@ import subprocess
 from flask.ext.script import Manager, Shell, Server
 from webassets.script import CommandLineEnvironment
 from flask.ext.migrate import MigrateCommand
-from eveask.app import assets_env
+from eveask.app import assets_env, db
 from eveask.main import app
 
 manager = Manager(app)
@@ -24,6 +24,14 @@ def test():
     '''Run the tests.'''
     status = subprocess.call(TEST_CMD, shell=True)
     sys.exit(status)
+
+@manager.command
+def createdb():
+    '''Create initial database.'''
+    if db.create_all():
+	sys.exit(0)
+    sys.exit(-1)
+
 
 @manager.command
 def clean_assets():

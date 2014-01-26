@@ -118,3 +118,10 @@ h6 {
 .messages-container .alert:last-child {
   margin-bottom: 0;
 }
+.navbar-main,
+.navbar-search {
+  padding-right: 0;
+}
+.navbar-user {
+  margin-right: 10px !important;
+}

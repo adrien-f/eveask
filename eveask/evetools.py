@@ -42,9 +42,12 @@ class RedisEveAPICacheHandler(object):
 
 
 class EveTools(object):
-    client = eveapi.EVEAPIConnection(cacheHandler=RedisEveAPICacheHandler(debug=app.config['DEBUG']))
 
-    def __init__(self, key_id=None, vcode=None):
+    def __init__(self, key_id=None, vcode=None, cache=True):
+        if cache:
+            self.client = eveapi.EVEAPIConnection(cacheHandler=RedisEveAPICacheHandler(debug=app.config['DEBUG']))
+        else:
+            self.client = eveapi.EVEAPIConnection()
         if key_id and vcode:
             self.auth(key_id, vcode)
 
@@ -53,4 +56,40 @@ class EveTools(object):
         self.vcode = vcode
         self.client = self.client.auth(keyID=key_id, vCode=vcode)
         self.authed = True
+
+    def safe_request(self, request, kwargs=None):
+        try:
+            req = getattr(self.client, request)
+            if kwargs is not None:
+                results = req(**kwargs)
+            else:
+                results = req()
+        except eveapi.Error as e:
+            app.logger.exception(e)
+            raise Exception('API Error, {}'.format(e.message))
+        except RuntimeError as e:
+            app.logger.exception(e)
+            raise Exception('CCP Server Error, {}'.format(e.message))
+        except Exception as e:
+            app.logger.exception(e)
+            raise Exception('System error, our team has been notified !')
+        return results
+
+    def check_key(self):
+        key_info = self.safe_request('account/APIKeyInfo')
+        access_mask, key_type, expires = key_info.key.accessMask, key_info.key.type, key_info.key.expires
+        if access_mask != 8388608:
+            raise Exception('Invalid access mask')
+        if key_type not in ['Character', 'Account']:
+            raise Exception('Invalid key type')
+        if expires != "":
+            raise Exception('Expiration detected on key')
+        return True
+
+    def get_characters(self):
+        key_info = self.safe_request('account/APIKeyInfo')
+        characters = []
+        for character in key_info.key.characters:
+            characters.append(self.safe_request('eve/CharacterInfo', {'characterID': character['characterID']}))
+        return characters
 

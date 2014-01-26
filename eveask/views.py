@@ -1,7 +1,8 @@
 # -*- coding: utf-8 -*-
 from flask import render_template
 from jinja2 import Markup
-from .app import app
+from eveask.app import app
+from eveask.users import users
 
 
 @app.route('/', methods=['GET'])
@@ -24,3 +25,6 @@ def inject_icon():
     def icon(icon_name):
         return Markup('<i class="fa fa-{icon}"></i>'.format(icon=icon_name))
     return dict(icon=icon)
+
+
+app.register_blueprint(users, url_prefix='/users')

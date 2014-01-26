@@ -1,0 +1,76 @@
+
+{% extends "_layouts/base.html" %}
+{% block content %}
+    <h3 class="subline">Register</h3>
+    <p>Thanks you for providing us with your API Key, we have successfully retrieved your characters.</p>
+    <p>Before finally letting you in, we need a few more informations from you.</p>
+    <br>
+    <form class="form-horizontal col-md-8 col-md-offset-2" method="post" action="{{ url_for('users.register_account') }}">
+        {{ form.csrf_token }}
+        <div class="form-group">
+            <label class="col-sm-3 control-label" for="character_name">Character name</label>
+            <div class="col-sm-9">
+                {{ form.character_id(class_='form-control') }}
+                <span class="help-block">This will be your displayed name</span>
+            </div>
+        </div>
+        <div class="form-group {% if form.username.errors %}has-error{% endif %}">
+            <label for="username" class="col-sm-3 control-label">Username</label>
+            <div class="col-sm-9">
+                <input type="text" class="form-control" id="username" name="username" placeholder="Your username" {% if form.username.data %}value="{{ form.username.data }}"{% endif %}>
+                {% if form.username.errors %}
+                    {% for error in form.username.errors %}
+                        <span class="help-block">{{ error }}</span>
+                    {% endfor %}
+                {% endif %}
+                <span class="help-block">Your username will be used to log you in. <strong>Do not use your Eve-Online username !</strong></span>
+            </div>
+        </div>
+        <div class="form-group {% if form.email.errors %}has-error{% endif %}">
+            <label for="email" class="col-sm-3 control-label">Email</label>
+            <div class="col-sm-9">
+                <input type="text" class="form-control" id="email" name="email" placeholder="Your email" {% if form.email.data %}value="{{ form.email.data }}"{% endif %}>
+                {% if form.email.errors %}
+                    {% for error in form.email.errors %}
+                        <span class="help-block">{{ error }}</span>
+                    {% endfor %}
+                {% endif %}
+                <span class="help-block">Your email will be used to help you recover your account should you forget your password.</span>
+            </div>
+        </div>
+        <div class="form-group {% if form.password.errors %}has-error{% endif %}">
+            <label for="password" class="col-sm-3 control-label">Password</label>
+            <div class="col-sm-9">
+                <input type="password" class="form-control" id="password" name="password" placeholder="Your password">
+                {% if form.password.errors %}
+                    {% for error in form.password.errors %}
+                        <span class="help-block">{{ error }}</span>
+                    {% endfor %}
+                {% endif %}
+                <span class="help-block"><strong>Do not use the same password as your Eve-Online account.</strong> 8 characters minimum.</span>
+            </div>
+        </div>
+        <div class="form-group {% if form.password_confirm.errors %}has-error{% endif %}">
+            <label for="password_confirm" class="col-sm-3 control-label">Verify password</label>
+            <div class="col-sm-9">
+                <input type="password" class="form-control" id="password_confirm" name="password_confirm" placeholder="Make sure your passwords are the same">
+                {% if form.password_confirm.errors %}
+                    {% for error in form.password_confirm.errors %}
+                        <span class="help-block">{{ error }}</span>
+                    {% endfor %}
+                {% endif %}
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <button type="submit" class="btn btn-primary pull-right">{{ icon('arrow-right') }} Continue</button>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-12">
+                <h4><a href="#">Already have an account ? Log in here !</a></h4>
+                <h4><a href="#">Having trouble logging in ? Recover your account</a></h4>
+            </div>
+        </div>
+    </form>
+{% endblock %}

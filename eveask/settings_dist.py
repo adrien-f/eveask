@@ -16,6 +16,7 @@ class ProdConfig(Config):
     DEBUG = False
     SQLALCHEMY_ECHO = False
     SQLALCHEMY_DATABASE_URI = 'postgresql://eveask:eveask@db.local/eveask' # DB URL
+    REDIS = '127.0.0.1'
 
 
 class DevConfig(Config):
@@ -25,4 +26,5 @@ class DevConfig(Config):
     DB_PATH = os.path.join(Config.PROJECT_ROOT, DB_NAME)
     SQLALCHEMY_DATABASE_URI = 'sqlite:///{0}'.format(DB_PATH)
     SQLALCHEMY_ECHO = True
+    REDIS = '127.0.0.1'
 

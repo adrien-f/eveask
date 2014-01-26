@@ -1,11 +1,11 @@
 import datetime
 
-from flask import Blueprint, flash, redirect, render_template, url_for, session
+from flask import Blueprint, flash, redirect, render_template, session, url_for
 from flask.ext.security import current_user
 from flask.ext.security.registerable import register_user
-from flask.ext.security.utils import login_user, logout_user, encrypt_password, verify_password, verify_and_update_password
-from eveask.app import app, db, bcrypt
-from eveask.forms import LoginForm, RegisterApiForm, RegisterAccountForm
+from flask.ext.security.utils import login_user, logout_user
+from eveask.app import app, bcrypt, db, security
+from eveask.forms import LoginForm, RegisterAccountForm, RegisterApiForm
 from eveask.models import user_datastore
 from evetools import EveTools
 
@@ -14,7 +14,7 @@ users = Blueprint('users', __name__, template_folder='templates/users')
 
 @users.route('/login', defaults={'redirect_to': '/'}, methods=['GET', 'POST'])
 @users.route('/login?next=<redirect_to>', methods=['GET', 'POST'])
-def login(redirect_to):
+def login(redirect_to='/'):
     if current_user.is_authenticated():
         return redirect(url_for('home'))
     login_form = LoginForm()
@@ -101,3 +101,14 @@ def logout():
     logout_user()
     flash('You have been logged out with success', 'info')
     return redirect('/')
+
+
+def security_login():
+    return redirect(url_for('users.login'))
+
+
+def security_logout():
+    return redirect(url_for('users.logout'))
+
+security.app.view_functions['security.login'] = security_login
+security.app.view_functions['security.logout'] = security_logout

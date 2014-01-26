@@ -3,6 +3,7 @@ from flask import render_template
 from jinja2 import Markup
 from eveask.app import app
 from eveask.users import users
+from eveask.questions import questions
 
 
 @app.route('/', methods=['GET'])
@@ -28,3 +29,4 @@ def inject_icon():
 
 
 app.register_blueprint(users, url_prefix='/users')
+app.register_blueprint(questions, url_prefix='/questions')

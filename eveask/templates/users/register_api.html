@@ -1,0 +1,51 @@
+
+{% extends "_layouts/base.html" %}
+{% block content %}
+    <h3 class="subline">Register</h3>
+    <p>Welcome to EveAsk and thanks you for your interest in joining us !</p>
+    <p>Our registration process is a bit different than usual, we are asking you to provide us a simple limited API Key so we can verify your in-game identity. This key will also be used to retrieve your character name, Eve portrait as well as your corporation and if applicable, your alliance.</p>
+    <p>On the Eve-Online API Generator page, please select the character you wish us to use to identify you on EveAsk, as well as the public information "CharacterInfo" and without an expiration date set.</p>
+    <p><a href="#">More informations about our API Key usage.</a></p>
+    <br>
+    <form class="form-horizontal col-md-8 col-md-offset-2" method="post" action="{{ url_for('users.register_api') }}">
+        {{ form.csrf_token }}
+        <div class="form-group">
+            <div class="col-sm-12 text-center">
+                <a class="btn btn-success" href="https://support.eveonline.com/api/key/CreatePredefined/8388608" target="_blank">{{ icon('key') }} Generate your API Key here</a>
+            </div>
+        </div>
+        <div class="form-group {% if form.key_id.errors %}has-error{% endif %}">
+            <label for="key_id" class="col-sm-2 control-label">Key ID</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="key_id" name="key_id" placeholder="Your Key ID" {% if form.key_id.data %}value="{{ form.key_id.data }}"{% endif %}>
+                {% if form.key_id.errors %}
+                    {% for error in form.key_id.errors %}
+                        <span class="help-block">{{ error }}</span>
+                    {% endfor %}
+                {% endif %}
+            </div>
+        </div>
+        <div class="form-group {% if form.vcode.errors %}has-error{% endif %}">
+            <label for="vcode" class="col-sm-2 control-label">vCode</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="vcode" name="vcode" placeholder="Your vCode" {% if form.vcode.data %}value="{{ form.vcode.data }}"{% endif %}>
+                {% if form.vcode.errors %}
+                    {% for error in form.vcode.errors %}
+                        <span class="help-block">{{ error }}</span>
+                    {% endfor %}
+                {% endif %}
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <button type="submit" class="btn btn-primary pull-right">{{ icon('arrow-right') }} Continue</button>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-12">
+                <h4><a href="#">Already have an account ? Log in here !</a></h4>
+                <h4><a href="#">Having trouble logging in ? Recover your account</a></h4>
+            </div>
+        </div>
+    </form>
+{% endblock %}

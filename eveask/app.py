@@ -4,6 +4,7 @@ import logging
 from logging import Formatter
 from logging.handlers import RotatingFileHandler
 from flask import Flask
+from flask.ext.bcrypt import Bcrypt
 from flask.ext.migrate import Migrate
 from flask.ext.sqlalchemy import SQLAlchemy
 from flask.ext.assets import Environment
@@ -24,6 +25,8 @@ app.config['ENV'] = env
 db = SQLAlchemy(app)
 
 migrate = Migrate(app, db)
+
+bcrypt = Bcrypt(app)
 
 from eveask.models import user_datastore  #  Circular imports FTW
 security = Security(app, user_datastore)

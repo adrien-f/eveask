@@ -25,14 +25,13 @@
 <body class="{% block body_class %}{% endblock %}">
     {% block body %}
 
+
     {% include "_layouts/nav.html" %}
 
-    <header>{% block header %}{% endblock %}</header>
-        <div class="{% block content_class %}{% endblock content_class %} container">
-        <div role="main">
-            {% with messages = get_flashed_messages(with_categories=true) %}
-            {% if messages %}
-            <div class="">
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+        <div class="container messages-container">
+            <div class="row">
                 <div class="col-lg-12">
                     {% for category, message in messages %}
                     <div class="alert alert-{{ category }}">
@@ -42,10 +41,15 @@
                     {% endfor %}
                 </div>
             </div>
-            {% endif %}
-            {% endwith %}
-            {% block content %}{% endblock %}
         </div>
+        {% endif %}
+    {% endwith %}
+
+    {% include "_layouts/header.html" %}
+
+
+    <div class="{% block content_class %}{% endblock content_class %} container">
+        {% block content %}{% endblock %}
     </div>
     {% block js %}{% endblock %}
     {% endblock %}

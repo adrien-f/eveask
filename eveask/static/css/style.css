@@ -1,146 +1,120 @@
 html {
-    overflow-y: scroll;
+  overflow-y: scroll;
 }
-
 body {
-    font-family: 'Open Sans', sans-serif;
+  font-family: 'Open Sans', sans-serif;
 }
-
 section {
-    overflow: auto;
+  overflow: auto;
 }
-
 textarea {
-    resize: vertical;
+  resize: vertical;
 }
-
 h1,
 h2,
 h3,
 h4,
 h5,
 h6 {
-    font-family: 'Open Sans', sans-serif;
+  font-family: 'Open Sans', sans-serif;
 }
-
 @media (min-width: 1200px) {
-    .container {
-        width: 970px;
-    }
+  .container {
+    width: 970px;
+  }
 }
-
 .page-header {
-    margin-top: 0;
+  margin-top: 0;
 }
-
 .navbar-inverse {
-    background-color: #2980b9;
-    border-radius: 0;
-    border-color: #287db5;
+  background-color: #2980b9;
+  border-radius: 0;
+  border-color: #287db5;
 }
-
 .navbar-brand {
-    color: white !important;
+  color: white !important;
 }
-
 .navbar-nav > .active > a {
-    background-color: #20638f !important;
+  background-color: #20638f !important;
 }
-
 .navbar-nav li > a:hover {
-    background-color: #20638f !important;
+  background-color: #20638f !important;
 }
-
 .navbar-nav li > a {
-    color: white !important;
+  color: white !important;
 }
-
 .header {
-    margin-top: 20px;
-    margin-bottom: 20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
-
 .header h1 {
-    font-weight: bold;
-    margin: 0;
+  font-weight: bold;
+  margin: 0;
 }
-
 .pills-header a {
-    color: #333;
+  color: #333;
 }
-
 .pills-header > li > a {
-    text-decoration: none;
-    background-color: #eee;
+  text-decoration: none;
+  background-color: #eee;
 }
-
 .pills-header > li > a:hover {
-    background-color: #bedcf0;
+  background-color: #bedcf0;
 }
-
 .counter {
-    text-align: center;
-    padding-top: 5px;
-    padding-bottom: 5px;
+  text-align: center;
+  padding-top: 5px;
+  padding-bottom: 5px;
 }
-
 .counter .number {
-    display: block;
-    font-weight: bold;
-    font-size: 18px;
+  display: block;
+  font-weight: bold;
+  font-size: 18px;
 }
-
 .counter .legend {
-    display: block;
-    font-size: 11px;
+  display: block;
+  font-size: 11px;
 }
-
 .counter.answered {
-    background-color: #2ecc71;
+  background-color: #2ecc71;
 }
-
 .subline {
-    padding-bottom: 10px;
-    margin-bottom: 20px;
-    border-bottom: 1px solid #d5d5d5;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #d5d5d5;
 }
-
 .question {
-    margin-bottom: 20px;
-    padding-bottom: 20px;
-    border-bottom: 1px solid #eee;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #eee;
 }
-
 .question h4 {
-    margin: 0;
+  margin: 0;
 }
-
 .question .meta {
-    padding-top: 10px;
-    display: block;
+  padding-top: 10px;
+  display: block;
 }
-
 .question .tags-list {
-    display: inline;
+  display: inline;
 }
-
 .question .info {
-    float: right;
-    font-size: small;
+  float: right;
+  font-size: small;
 }
-
 .label-inverse {
-    background-color: #eee;
-    color: #333;
-    font-weight: normal;
+  background-color: #eee;
+  color: #333;
+  font-weight: normal;
 }
-
 .sidebar {
-    padding-top: 20px;
+  padding-top: 20px;
 }
-
 .sidebar-block .tags-list span {
-    margin-bottom: 5px;
-    padding: 5px 10px;
-    display: inline-block;
+  margin-bottom: 5px;
+  padding: 5px 10px;
+  display: inline-block;
+}
+.messages-container .alert:last-child {
+  margin-bottom: 0;
 }

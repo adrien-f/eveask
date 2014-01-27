@@ -125,3 +125,10 @@ h6 {
 .navbar-user {
   margin-right: 10px !important;
 }
+.tabs-title {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.tabs-title h3 {
+  margin: 0;
+}

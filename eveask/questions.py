@@ -1,4 +1,4 @@
-from flask import Blueprint
+from flask import Blueprint, render_template
 
 questions = Blueprint('questions', __name__, template_folder='templates/questions')
 
@@ -8,4 +8,4 @@ questions = Blueprint('questions', __name__, template_folder='templates/question
 @questions.route('?sort=<sort>', defaults={'page': 1})
 @questions.route('?page=<page>&sort=<sort>')
 def list_questions(page, sort):
-    return 'Questions'
+    return render_template('questions.html')

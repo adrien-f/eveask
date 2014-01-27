@@ -9,3 +9,8 @@ questions = Blueprint('questions', __name__, template_folder='templates/question
 @questions.route('?page=<page>&sort=<sort>')
 def list_questions(page, sort):
     return render_template('questions.html')
+
+
+@questions.route('/new', methods=['GET', 'POST'])
+def new_question():
+    return render_template('new_question.html')

@@ -31,7 +31,7 @@ Launch EveAsk:
     
 ## Contributing
 
-Pull requests are most welcomed, but please come talk to us before at asylum@public.conference.talkinlocal.org (XMPP) to see what we're up to !
+Pull requests are most welcomed, but please come talk to us before at asylum@conference.talkinlocal.org (XMPP) to see what we're up to !
 
 ## License
 
